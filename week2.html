@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        /* Slideshow styles */
+    </style>
+</head>
+<body>
+<textarea id="source">
+
+
+#KWEB 디스코드 봇 스터디
+
+##정회원 스터디 3주차
+
+
+####각자 봇에 기능 넣어보기
+- 채팅 메세지 받기
+- 음성 재생
+
+
+---
+
+#김은주 - teemo
+
+- 채팅 메세지 주고받기
+- 음성 재생
+
+---
+
+![](pic/week2/discord_bot_pic.jpg)
+![](pic/week2/teemo_is_cute.jpg)
+---
+![](pic/week2/join_voice_channel.jpg)
+
+
+
+---
+#####bot.js
+```javascript
+
+client.on('ready', () => {
+    console.log('run');
+});
+client.on('message', message => {
+
+    if (message.content === 'teemo') {
+        message.reply('is cute');
+    }
+    if(message.content ==="티모"){
+        message.reply('기여어');
+    }
+    if(message.content === '^j'){
+        if(message.member.voiceChannel){
+            message.member.voiceChannel.join()
+                .then (connection => {
+                    connection.playFile("laugh.mp3");
+                })
+                .catch(console.log);
+        }else{
+            message.reply("you're not in voice channel")
+        }
+    }
+    if(message.content === '^o'){
+        message.member.voiceChannel.leave();
+    }
+});
+client.login('{client_id}');
+```
+
+---
+
+#이태준  - Chamalane
+
+
+
+
+</textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js">
+</script>
+<script>
+    var slideshow = remark.create();
+</script>
+</body>
+</html>
