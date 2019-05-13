@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        /* Slideshow styles */
+    </style>
+</head>
+<body>
+<textarea id="source">
+
+
+# KWEB 디스코드 봇 스터디
+
+## 정회원 스터디 4주차
+
+
+#### 목차
+- 개발 계획
+
+
+---
+
+# Teemo bot
+
+- ^i {pic_name} : 검색어를 구글 이미지에 검색해서 랜덤한 이미지 반환
+- ^g {game_name} -> @everyone {game_name} 하자 : 입력한 게임을 모두에게 권유
+- ^sg {nickname} -> @{nickname} {game_name} 그만해라 : 특정 유저가 하고 있는 게임을 그만할 것을 권유
+- ^pg {nickname} -> {nickname} is playing {game_name} : 특정 유저가 어떤 게임을 하고 있는지 출력
+---
+
+# Chamalane bot
+
+- 이모지 슬롯머신 : 서버 이모지를 랜덤하게 3개 띄워 3개가 같은 이모지면 리워드 제공
+- 노래방 검색 : 검색한 노래가 노래방에서 몇 번인지 알려줌
+- 메뉴 추천 : 뭐 먹을지 추천
+
+---
+
+#heroku
+
+서버를 올려서 24/7 돌아가도록 하는 방법을 찾아볼 예정
+
+
+
+---
+#####bot.js
+```javascript
+
+client.on('ready', () => {
+    console.log('run');
+});
+client.on('message', message => {
+
+    if (message.content === 'teemo') {
+        message.reply('is cute');
+    }
+    if(message.content ==="티모"){
+        message.reply('기여어');
+    }
+    if(message.content === '^j'){
+        if(message.member.voiceChannel){
+            message.member.voiceChannel.join()
+                .then (connection => {
+                    connection.playFile("laugh.mp3");
+                })
+                .catch(console.log);
+        }else{
+            message.reply("you're not in voice channel")
+        }
+    }
+    if(message.content === '^o'){
+        message.member.voiceChannel.leave();
+    }
+});
+client.login('{client_id}');
+```
+
+---
+
+#Chamalane
+
+
+
+## Bot Info
+
+|언어|빌드 도구| Discord API|
+|:--:|:--:|:--:|
+|Java|Gradle|JDA|
+
+
+
+## 개발 일지
+
+~ 2019. 04. 08.
+
+- 명령어를 입력한 채널에 서버에서 봇을 통해 메시지를 전송할 수 있는 기능 구현
+
+---
+
+## 개발할 기능(관심 있는)
+
+- 배그 스탯 트래킹
+- 배그 패치하면 패치노트 받아오기
+- 이모지 슬롯머신
+- 운영체제 사이트에 뭐 나오면 알려주게끔
+- 검색어를 입력하면 사진을 구글에서 가져올 수 있게
+- 특정 게임을 하고 있는 사람을 태그 하는 기능
+
+
+
+
+</textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js">
+</script>
+<script>
+    var slideshow = remark.create();
+</script>
+</body>
+</html>
